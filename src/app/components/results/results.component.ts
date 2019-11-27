@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HotelsService} from '../../hotels.service';
 import { DatePickerComponent} from '../date-picker/date-picker.component';
+import { TransferService } from '../../transfer.service';
 
 
 @Component({
@@ -9,23 +10,16 @@ import { DatePickerComponent} from '../date-picker/date-picker.component';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  upCase(selectedDate): void {
-    this.result = selectedDate;
-    console.log(this.result);
-  }
-  upCase2(selectedDate2): void {
-    this.result2 = selectedDate2;
-  }
   hotels;
   hotel;
   available;
   av; 
   matchedHotels=[];
-  result;
-  result2;
+  date1;
+  date2;
   confirm (event): void {
-    console.log((this.result)+'yes')
-    console.log(this.result2)
+    console.log((this.date1)+'yes')
+    console.log(this.date2)
     this.hotels.map((hotel)=>{
     this.available= (hotel.availability)
     this.available.map((av)=>{
@@ -39,15 +33,15 @@ export class ResultsComponent implements OnInit {
     })
     
   }
-  constructor(private HotelsService: HotelsService) { }
+  constructor(private HotelsService: HotelsService,private data: TransferService) { }
 
   ngOnInit() {
 
     this.HotelsService.getHotels().subscribe((data)=>{
       console.log(data);
-      this.hotels=data['hotels'] 
-    
-     
+      this.hotels=data['hotels'] ;
+      this.data.currentDate.subscribe((date)=>this.date1=date);
+      //this.data.currentDate2.subscribe((date)=>this.date2=date);     
     });
     
  

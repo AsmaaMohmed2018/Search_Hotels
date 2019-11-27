@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { TransferService } from '../../transfer.service';
 
 @Component({
   selector: 'app-date-picker',
@@ -7,12 +7,15 @@ import { EventEmitter } from 'events';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
-  @Output() onChange = new EventEmitter();
+  date :string;
 
-  constructor() { }
+  constructor(private data: TransferService ) { }
   public model;
   ngOnInit() {
- 
-
+    this.data.currentDate.subscribe((date)=>this.date=date);
+  }
+  newDate(){
+    this.data.changeDate(this.model);
+    console.log('asmaa');
   }
 }

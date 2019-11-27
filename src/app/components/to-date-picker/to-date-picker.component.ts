@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { TransferService } from '../../transfer.service';
 
 @Component({
   selector: 'app-to-date-picker',
@@ -7,10 +7,15 @@ import { EventEmitter } from 'events';
   styleUrls: ['./to-date-picker.component.css']
 })
 export class ToDatePickerComponent implements OnInit {
-  @Output() onChange2 = new EventEmitter();
-  constructor() { }
-
+  date :string;
+  constructor(private data: TransferService ) { }
+   public model;
   ngOnInit() {
+    //this.data.currentDate.subscribe((date)=>this.date=date);
   }
+
+  /*newDate(){
+    this.data.changeDate(this.model);
+  }*/
 
 }
