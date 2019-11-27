@@ -16,6 +16,6 @@ export class DatePickerComponent implements OnInit {
   }
   newDate(){
     this.data.changeDate(this.model);
-    console.log('asmaa');
+    console.log(this.date);
   }
 }

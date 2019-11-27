@@ -18,8 +18,8 @@ export class ResultsComponent implements OnInit {
   date1;
   date2;
   confirm (event): void {
-    console.log((this.date1)+'yes')
-    console.log(this.date2)
+    console.log(this.date1)
+    //console.log(this.date2)
     this.hotels.map((hotel)=>{
     this.available= (hotel.availability)
     this.available.map((av)=>{
@@ -41,6 +41,7 @@ export class ResultsComponent implements OnInit {
       console.log(data);
       this.hotels=data['hotels'] ;
       this.data.currentDate.subscribe((date)=>this.date1=date);
+      console.log(this.date1);
       //this.data.currentDate2.subscribe((date)=>this.date2=date);     
     });
     
