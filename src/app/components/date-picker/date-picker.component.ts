@@ -12,10 +12,10 @@ export class DatePickerComponent implements OnInit {
   constructor(private data: TransferService ) { }
   public model;
   ngOnInit() {
-    this.data.currentDate.subscribe((date)=>this.date=date);
+    this.data.currentDate1.subscribe((date)=>this.date=date);
   }
-  newDate(){
-    this.data.changeDate(this.model);
+  newDate1(){
+    this.data.changeDate1(this.model);
     console.log(this.date);
   }
 }

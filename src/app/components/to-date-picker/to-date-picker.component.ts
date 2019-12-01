@@ -8,14 +8,17 @@ import { TransferService } from '../../transfer.service';
 })
 export class ToDatePickerComponent implements OnInit {
   date :string;
+  
+  
   constructor(private data: TransferService ) { }
-   public model;
+  public model;
   ngOnInit() {
-    //this.data.currentDate.subscribe((date)=>this.date=date);
+    this.data.currentDate2.subscribe((date)=>this.date=date);
   }
 
-  /*newDate(){
-    this.data.changeDate(this.model);
-  }*/
+  newDate2(){
+    this.data.changeDate2(this.model);
+    console.log(this.date);
+  }
 
 }

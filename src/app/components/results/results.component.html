@@ -6,10 +6,10 @@
     </div>
     <div class="row mt-4 mb-2 mx-2">
             <div class="col-lg-2 input-group">
-                <input type="text" class="form-control" placeholder="Search Hotel Name">                   
+                <input type="text" class="form-control" placeholder="Search Hotel Name" [(ngModel)]="nameSort">                   
             </div>
             <div class="col-lg-2">
-                Total Nights : {{nights}}
+                Total Nights : <b> {{night}}</b>
             </div>
             <div>
                 <button type="button" class=" btn-lg  bg-white text-dark btn-group-justified" (click)="confirm($event)">Search</button>
@@ -18,7 +18,7 @@
                 <button class="btn-lg  bg-white text-dark btn-group-justified align-self-center mx-0" >Sort By price</button>
             </div>
             <div class="col-lg-3">
-                <button class="btn-lg  bg-white text-dark btn-group-justified align-self-center mx-0">Sort By Name</button>
+                <button class="btn-lg  bg-white text-dark btn-group-justified align-self-center mx-0" (click)="sortByname($event)">Sort By Name</button>
             </div>
     </div>
 
